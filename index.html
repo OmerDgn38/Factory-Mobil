@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Factory Mobil - Giriş</title>
+  <link rel="stylesheet" href="public/css/style.css" />
+</head>
+<body class="auth-body">
+  <main class="auth-container">
+    <section class="glass-card">
+      <h1>Factory Mobil</h1>
+      <p>Fabrika insan kaynakları ve operasyon paneli</p>
+      <form id="loginForm" class="auth-form">
+        <label>Kullanıcı Adı
+          <input type="text" id="username" required />
+        </label>
+        <label>Şifre
+          <input type="password" id="password" required />
+        </label>
+        <label>Rol
+          <select id="role" required>
+            <option value="user">Kullanıcı</option>
+            <option value="admin">Admin</option>
+          </select>
+        </label>
+        <button type="submit">Giriş Yap</button>
+      </form>
+      <small>Demo kullanıcı: <b>personel / 123456</b> | Demo admin: <b>admin / admin123</b></small>
+    </section>
+  </main>
+  <script src="public/js/model.js"></script>
+  <script src="public/js/controller.js"></script>
+</body>
+</html>

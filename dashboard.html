@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Factory Mobil - Dashboard</title>
+  <link rel="stylesheet" href="public/css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Factory Mobil</h1>
+    <nav>
+      <a href="#" data-page="workers">İşçiler</a>
+      <a href="#" data-page="payroll">Bordrolar</a>
+      <a href="#" data-page="overtime">Mesailer</a>
+      <a href="#" data-page="leaves">İzinler</a>
+      <a href="#" data-page="admin">Admin Panel</a>
+      <button id="logoutBtn">Çıkış</button>
+    </nav>
+  </header>
+
+  <main id="content" class="content-grid"></main>
+
+  <script src="public/js/model.js"></script>
+  <script src="public/js/view.js"></script>
+  <script src="public/js/controller.js"></script>
+</body>
+</html>

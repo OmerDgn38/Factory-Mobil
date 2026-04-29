@@ -1,0 +1,11 @@
+@model FactoryMobil.Web.ViewModels.LoginViewModel
+@{ ViewData["Title"] = "Giriş"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+<section class="card auth-card">
+    <h2>Sisteme Giriş</h2>
+    <form method="post">
+        <label>Kullanıcı Adı <input asp-for="UserName" /></label>
+        <label>Şifre <input asp-for="Password" /></label>
+        <button type="submit">Giriş Yap</button>
+    </form>
+    <p class="muted">Demo: admin/admin123 - personel/123456</p>
+</section>

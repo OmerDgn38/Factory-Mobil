@@ -1,0 +1,10 @@
+body{margin:0;font-family:Segoe UI;background:linear-gradient(135deg,#0b1020,#1e3a8a);color:#e2e8f0}
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;background:#0f172acc;position:sticky;top:0}
+.topbar nav a{color:#fff;text-decoration:none;margin-left:10px;background:#334155;padding:8px 12px;border-radius:8px}
+.container{padding:24px}.card{background:#1e293bcc;border:1px solid #475569;padding:18px;border-radius:14px}
+.auth-card{max-width:420px;margin:30px auto}.auth-card form{display:grid;gap:10px}
+input,button{padding:10px;border-radius:8px;border:none}button{background:#22d3ee;font-weight:700}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.stat{background:#0f172a;padding:14px;border-radius:10px;border:1px solid #334155}.danger{border-color:#ef4444}.success{border-color:#22c55e}
+.charts{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+@media (max-width:900px){.charts{grid-template-columns:1fr}}

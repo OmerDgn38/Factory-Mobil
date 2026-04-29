@@ -1,0 +1,18 @@
+@model FactoryMobil.Web.ViewModels.DashboardViewModel
+@{ ViewData["Title"] = "Dashboard"; Layout = "~/Views/Shared/_Layout.cshtml"; }
+<section class="stats-grid">
+    <article class="stat"><h3>Toplam Çalışan</h3><p>@Model.TotalEmployees</p></article>
+    <article class="stat danger"><h3>Bugün Gelmeyen</h3><p>@Model.AbsentToday</p></article>
+    <article class="stat success"><h3>Bugün Mesai Yapan</h3><p>@Model.OvertimeToday</p></article>
+    <article class="stat"><h3>Aktif İzinli</h3><p>@Model.ActiveLeaves</p></article>
+</section>
+<section class="charts">
+    <div class="card"><canvas id="salaryChart"></canvas></div>
+    <div class="card"><canvas id="overtimeChart"></canvas></div>
+</section>
+<script>
+const salary = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.SalaryDistribution));
+const overtime = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(Model.OvertimeDensity));
+window.renderDashboardCharts(salary, overtime);
+</script>
+<script src="~/wwwroot/js/dashboard.js"></script>

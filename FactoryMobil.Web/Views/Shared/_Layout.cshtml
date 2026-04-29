@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - Factory Mobil</title>
+    <link rel="stylesheet" href="~/wwwroot/css/site.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header class="topbar">
+        <h1>Factory Mobil</h1>
+        <nav>
+            <a href="/Dashboard">Dashboard</a>
+            <a href="/Employee">Çalışanlar</a>
+            <a href="/Employee/Payroll">Bordrolar</a>
+            <a href="/Employee/Overtimes">Mesailer</a>
+            <a href="/Employee/Leaves">İzinler</a>
+            <a href="/Auth/Logout">Çıkış</a>
+        </nav>
+    </header>
+    <main class="container">@RenderBody()</main>
+</body>
+</html>

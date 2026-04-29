@@ -1,0 +1,61 @@
+CREATE TABLE Roles (
+  Id INT IDENTITY(1,1) PRIMARY KEY,
+  Name NVARCHAR(20) NOT NULL UNIQUE
+);
+
+CREATE TABLE Users (
+  Id INT IDENTITY(1,1) PRIMARY KEY,
+  UserName NVARCHAR(50) NOT NULL UNIQUE,
+  PasswordHash NVARCHAR(255) NOT NULL,
+  RoleId INT NOT NULL,
+  EmployeeId INT NULL,
+  CreatedAt DATETIME2 NOT NULL DEFAULT GETDATE(),
+  FOREIGN KEY (RoleId) REFERENCES Roles(Id)
+);
+
+CREATE TABLE Employees (
+  Id INT IDENTITY(1,1) PRIMARY KEY,
+  FirstName NVARCHAR(50) NOT NULL,
+  LastName NVARCHAR(50) NOT NULL,
+  Phone NVARCHAR(20),
+  Address NVARCHAR(250),
+  Position NVARCHAR(80),
+  HireDate DATE NOT NULL,
+  IsActive BIT NOT NULL DEFAULT 1
+);
+
+CREATE TABLE Salaries (
+  Id INT IDENTITY(1,1) PRIMARY KEY,
+  EmployeeId INT NOT NULL,
+  PeriodMonth TINYINT NOT NULL,
+  PeriodYear SMALLINT NOT NULL,
+  BaseSalary DECIMAL(18,2) NOT NULL,
+  Bonus DECIMAL(18,2) NOT NULL DEFAULT 0,
+  Deduction DECIMAL(18,2) NOT NULL DEFAULT 0,
+  NetSalary AS (BaseSalary + Bonus - Deduction) PERSISTED,
+  FOREIGN KEY (EmployeeId) REFERENCES Employees(Id)
+);
+
+CREATE TABLE Overtimes (
+  Id INT IDENTITY(1,1) PRIMARY KEY,
+  EmployeeId INT NOT NULL,
+  OvertimeDate DATE NOT NULL,
+  Hours DECIMAL(5,2) NOT NULL,
+  Status NVARCHAR(20) NOT NULL,
+  FOREIGN KEY (EmployeeId) REFERENCES Employees(Id)
+);
+
+CREATE TABLE Leaves (
+  Id INT IDENTITY(1,1) PRIMARY KEY,
+  EmployeeId INT NOT NULL,
+  LeaveType NVARCHAR(50) NOT NULL,
+  TotalDays INT NOT NULL,
+  UsedDays INT NOT NULL,
+  RemainingDays AS (TotalDays - UsedDays) PERSISTED,
+  StartDate DATE NULL,
+  EndDate DATE NULL,
+  IsActive BIT NOT NULL DEFAULT 0,
+  FOREIGN KEY (EmployeeId) REFERENCES Employees(Id)
+);
+
+INSERT INTO Roles (Name) VALUES ('Admin'), ('User');
